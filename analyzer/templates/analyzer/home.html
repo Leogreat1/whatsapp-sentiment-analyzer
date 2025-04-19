@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Sentiment Analyzer</title>
+</head>
+<body>
+    <h1>Upload Your WhatsApp Chat (.txt)</h1>
+    {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
+    <form method="post" enctype="multipart/form-data" action="{% url 'upload_chat' %}">
+        {% csrf_token %}
+        <input type="file" name="chat_file" accept=".txt" required>
+        <button type="submit">Analyze</button>
+    </form>
+</body>
+</html>
